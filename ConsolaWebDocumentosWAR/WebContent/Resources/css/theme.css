@@ -1,0 +1,257 @@
+h1 {
+	font-size: 1.7em;
+	margin: 0.67em 0;
+}
+
+.vertical-menu {
+	width: 100%;
+}
+
+.vertical-menu a {
+	background-color: #eee;
+	color: black;
+	display: block;
+	padding: 12px;
+	text-decoration: none;
+}
+
+.vertical-menu a:hover {
+	background-color: #ccc;
+}
+
+.vertical-menu a.active {
+	background-color: red;
+	color: white;
+}
+
+.contenedor-menu {
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width: 20%;
+	height: 100%;
+}
+
+.contenedorVista {
+	float: left;
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 80%;
+	border-left: none;
+	height: 100%;
+}
+
+.col-95 {
+	-ms-flex: 95%; /* IE10 */
+	flex: 95%;
+}
+
+.col-90 {
+	-ms-flex: 90%; /* IE10 */
+	flex: 90%;
+}
+
+.col-60 {
+	-ms-flex: 60%; /* IE10 */
+	flex: 60%;
+}
+
+.col-50 {
+	-ms-flex: 50%; /* IE10 */
+	flex: 50%;
+}
+
+}
+.col-40 {
+	-ms-flex: 40%; /* IE10 */
+	flex: 40%;
+}
+
+.col-30 {
+	-ms-flex: 30%; /* IE10 */
+	flex: 30%;
+}
+
+.col-20 {
+	-ms-flex: 20%; /* IE10 */
+	flex: 20%;
+}
+
+.col-10 {
+	-ms-flex: 10%; /* IE10 */
+	flex: 10%;
+}
+
+.col-5 {
+	-ms-flex: 5%; /* IE10 */
+	flex: 5%;
+}
+
+.row {
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	-ms-flex-wrap: wrap; /* IE10 */
+	flex-wrap: wrap;
+	margin: 0 -1px;
+}
+
+.container {
+	background-color: #f2f2f2;
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	width: 100%;
+}
+
+label {
+	margin-bottom: 5px;
+	display: block;
+}
+
+input[type=text] {
+	width: 80%;
+	margin-bottom: 5px;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.icon-container {
+	margin-bottom: 20px;
+	padding: 7px 0;
+	font-size: 24px;
+}
+
+.btn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 12px;
+	margin: 10px 0;
+	border: none;
+	width: 100%;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 17px;
+}
+
+.btn:hover {
+	background-color: #45a049;
+}
+
+#scroll {
+	width: 100%;
+	overflow: scroll;
+}
+
+.error {
+	color: red;
+}
+
+body .ui-datatable thead th {
+	padding: 0;
+	text-align: center;
+}
+
+.ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td,
+	.ui-datatable tfoot th {
+	padding: 0px 4px !important;
+}
+
+.bannerP {
+	padding: 15px;
+	text-align: center;
+	background: red;
+	background-image: url(../images/logo-davivienda.png);
+	background-repeat: no-repeat;
+	background-position-y: center;
+    background-size: 25em;
+    background-position-x: -65px;
+}
+
+@media screen and (max-width: 40.063em) {
+	.bannerP {
+		padding: 15px;
+		text-align: center;
+		background: red;
+	}
+}
+
+span.requerido {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+}
+
+img.descargar {
+	max-width: 35%;
+	vertical-align: unset;
+}
+
+img.descargar-reintento {
+	max-width: 28%;
+	vertical-align: bottom;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 0px 0 0;
+    line-height: normal;
+}
+
+img.export {
+	max-width: 3%;
+	vertical-align: unset;
+}
+
+img.export-docs {
+	max-width: 65%;
+	vertical-align: unset;
+}
+
+@media screen and (max-width: 40.063em) {
+	img.export {
+		max-width: 6%;
+		vertical-align: unset;
+	}
+	img.export-docs {
+		max-width: 100%;
+		vertical-align: unset;
+	}
+}
+
+.requerido {
+	background: url(../images/check.png) no-repeat;
+	background-size: 22%;
+	background-position: center;
+}
+
+.procesado {
+	background: url(../images/Procesado.png) no-repeat;
+	background-size: 35%;
+	background-position: center;
+}
+
+.noProcesado {
+	background: url(../images/no_procesado.png) no-repeat;
+	background-size: 27%;
+	background-position: center;
+}
+
+.reporcesar {
+	background: url(../images/Reprocesar.png) no-repeat;
+	background-size: 27%;
+	background-position: center;
+}
+
+.ui-button.descargar .ui-icon.ui-icon-triangle-1-e {
+	background: url(../images/descargar.png) no-repeat;
+	background-position: -4px 0px;
+	border-radius: 120px;
+	top: 9px;
+	width: 18px;
+	height: 18px;
+	margin-left: -21px;
+}
+
+.ui-dialog.imagenCarga {
+	background: transparent;
+	box-shadow: none;
+}

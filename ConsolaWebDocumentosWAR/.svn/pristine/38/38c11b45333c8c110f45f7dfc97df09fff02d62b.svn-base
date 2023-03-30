@@ -1,0 +1,10 @@
+function getActiveItemId(){
+	var itemsFound = document.getElementsByClassName("item");
+	if ( itemsFound !== null && itemsFound.length > 0){
+		for (var i=0; i < itemsFound.length; i++ ) {
+			if ( itemsFound[i].attributes["aria-hidden"].value === "false" ) {
+				return itemsFound[i].id;
+			}
+		}
+	}
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:loadBundle basename="resources.application" var="msg" />
+
+<h:head>
+	<title><h:outputText value="#{msg.welcomeTitle}" /></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet"
+		href="/ConsolaWebDocumentos/Resources/css/style-desktop.css"></link>
+	<link rel="stylesheet"
+		href="/ConsolaWebDocumentos/Resources/css/style-mobile.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="/ConsolaWebDocumentos/Resources/css/theme.css"></link>
+	<script type="text/javascript"
+		src="/ConsolaWebDocumentos/Resources/js/main.js"></script>
+	<script type="text/javascript"
+		src="/ConsolaWebDocumentos/Resources/js/ConsolaWeb.js"></script>
+
+	<h:outputScript id="jsf" library="javax.faces" name="jsf.js" />
+
+</h:head>
+
+<body>
+	<div class="bannerP">
+		<div class="banner-content">
+			<h1 style="color: white">Consola Web Documentos</h1>
+		</div>
+	</div>
+	<div class="banner" style="padding: 5px">
+		<div class="banner-content">
+			<h:outputText value="Bienvenido(a) #{user}" style="color:red"></h:outputText>
+			<h:button value="Cerrar Sesion" style="float:right"></h:button>
+			<br />
+			<h:outputText
+				value="Fecha y hora de ingreso: #{erroresBean.fechaHoraActual}"
+				style="color:red"></h:outputText>
+		</div>
+	</div>
+	<div class="contenedor-menu">
+		<div class="vertical-menu">
+			<a href="/ConsolaWebDocumentos/menu.xhtml">Consulta Documentos</a> <a
+				href="/ConsolaWebDocumentos/menu2.xhtml" class="active">Consulta
+				Errores</a>
+		</div>
+	</div>
+	<div id="consultaErrores" class="contenedorVista">
+		<h:outputText value="Usted se encuentra en: Consulta Errores"
+			style="color:red"></h:outputText>
+		<div class="container">
+			<div class="row">
+				<div class="col-50">
+					<h3>Filtros</h3>
+				</div>
+				<div class="col-50" style="margin: auto">
+					<p:outputPanel id="mostrar">
+						<p:commandLink update="mostrar filtros"
+							action="#{erroresBean.showFilters}"
+							rendered="#{!erroresBean.mostrarFiltros}">
+							<h:outputText value="Mostrar Filtros" />
+						</p:commandLink>
+						<p:commandLink update="mostrar filtros"
+							action="#{erroresBean.hiddeFilters}"
+							rendered="#{erroresBean.mostrarFiltros}">
+							<h:outputText value="Ocultar Filtros" />
+						</p:commandLink>
+					</p:outputPanel>
+				</div>
+			</div>
+			<p:outputPanel id="filtros">
+				<h:form id="formConsultaErrores"
+					rendered="#{erroresBean.mostrarFiltros}">
+					<p:growl id="growl" showDetail="true" />
+					<div class="row">
+						<div class="col-20">
+							<div class="container">
+								<h3>Rango de Fechas</h3>
+								<label for="fecha_inicio">* Fecha inicio</label>
+								<p:calendar id="fecha_inicio" name="fecha_inicio"
+									pattern="yyyy-mm-dd" value="#{erroresBean.dateInit}"
+									showOn="button" required="true"
+									requiredMessage="Fecha inicio: Inserte una fecha valida (yyyy-mm-dd)">
+									<f:convertDateTime type="date" pattern="yyyy-mm-dd" />
+								</p:calendar>
+								<label for="fecha_final">* Fecha final</label>
+								<p:calendar id="fecha_final" name="fecha_final"
+									pattern="yyyy-mm-dd" value="#{erroresBean.dateFinal}"
+									showOn="button" required="true"
+									requiredMessage="Fecha final: Inserte una fecha valida (yyyy-mm-dd)">
+									<f:convertDateTime type="date" pattern="yyyy-mm-dd" />
+								</p:calendar>
+							</div>
+						</div>
+						<div class="col-20">
+
+							<label for="proceso">Id Proceso</label>
+							<p:inputText id="proceso" name="proceso" placeholder="Proceso"
+								value="#{erroresBean.proceso}"></p:inputText>
+							<label for="plantilla">Id plantilla</label>
+							<p:selectOneMenu style="width:80%"
+								value="#{erroresBean.idPlantilla}">
+								<f:selectItems value="#{erroresBean.listaPlantillas}"></f:selectItems>
+							</p:selectOneMenu>
+							<label for="paquete">Id paquete</label>
+							<p:selectOneMenu style="width:80%"
+								value="#{erroresBean.idPaquete}">
+								<f:selectItems value="#{erroresBean.listaPaquetes}"></f:selectItems>
+							</p:selectOneMenu>
+							<h4 style="color: red">(*) Campo Obligatorio</h4>
+						</div>
+					</div>
+					<h:commandButton id="buscar" styleClass="ui-buttom" value="Buscar"
+						actionListener="#{erroresBean.consultarErrores}"
+						style="margin-left: 45%; margin-top:5px">
+					</h:commandButton>
+				</h:form>
+			</p:outputPanel>
+		</div>
+
+		<br></br>
+
+		<div class="container">
+			<div id="scroll" style="height: 48%; margin: 15px">
+				<h:form id="formTableError">
+					<p:dataTable value="#{erroresBean.result}" var="datos"
+						paginator="true" scrollable="true" scrollWidth="100%"
+						scrollHeight="500" lazy="true" dynamic="true" id="tablaError"
+						rows="#{erroresBean.pageSize}" paginatorAlwaysVisible="false"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+						rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+						<p:column style="width:40px; text-align:center">
+							<f:facet name="header">
+								<h:outputLabel value="Id Proceso" />
+							</f:facet>
+							<h:outputLabel value="#{datos.idProceso}" />
+						</p:column>
+						<p:column style="width:35px; text-align:center">
+							<f:facet name="header">
+								<h:outputLabel value="Codigo Error" />
+							</f:facet>
+							<h:outputLabel value="#{datos.codigoError}"></h:outputLabel>
+						</p:column>
+						<p:column style="width:150px">
+							<f:facet name="header">
+								<h:outputLabel value="Descripcion Error" />
+							</f:facet>
+							<h:outputLabel value="#{datos.descripcionError}" />
+						</p:column>
+						<p:column style="width:38px; text-align:center">
+							<f:facet name="header">
+								<h:outputLabel value="Fecha Creacion" />
+							</f:facet>
+							<h:outputLabel value="#{datos.fechaCreacion}">
+								<f:convertDateTime pattern="MMM-dd HH:mm" locale="es_CO" />
+							</h:outputLabel>
+						</p:column>
+						<p:column style="width:80px ; text-align:center">
+							<f:facet name="header">
+								<h:outputLabel value="Componente" />
+							</f:facet>
+							<h:outputLabel
+								value="#{erroresBean.formatoNameService(datos.componente)}" />
+						</p:column>
+						<p:column style="overflow-wrap: anywhere; width:100px">
+							<f:facet name="header">
+								<h:outputLabel value="Plantilla" />
+							</f:facet>
+							<h:outputLabel value="#{datos.plantilla}" />
+						</p:column>
+						<p:column style="overflow-wrap: anywhere; width:100px">
+							<f:facet name="header">
+								<h:outputLabel value="Paquete" />
+							</f:facet>
+							<h:outputLabel value="#{datos.paquete}"></h:outputLabel>
+						</p:column>
+					</p:dataTable>
+					<div></div>
+					<div align="right">
+						<h:commandLink disabled="#{erroresBean.result eq null}">
+							<h:graphicImage value="/Resources/images/Excel_icon.png"
+								styleClass="export" />
+							<p:dataExporter type="xls" target="tablaError"
+								fileName="ConsultaErrores" />
+						</h:commandLink>
+					</div>
+				</h:form>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

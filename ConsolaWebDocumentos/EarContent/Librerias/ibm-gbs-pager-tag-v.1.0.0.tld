@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ******************************************************************************************
+	Descriptor de los tags de paginación y ordenamiento
+	author ocaldero@co.ibm.com
+ 	version 1.0
+	*********************************************************************************************** -->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    <description>Tags IBM que hacen parte del componente de paginación y ordenamiento</description>  
+	<tlibversion>1.2</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>ibm</shortname>
+	<uri>http://www.ibm.com/co/es/tags</uri>
+	<!-- ******************************************************************************************
+	**************************************  TAG DE PAGINACION *************************************
+	***********************************************************************************************-->
+	<tag>
+		<name>pager</name>
+		<tagclass>co.com.ibm.components.pager.PagerTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<description>Tag que renderiza un paginador de datos</description>
+		<!-- ************************* ATRIBUTOS BASICOS DEL TAG ***********************************-->
+		<attribute>
+			<description>Id único del elemento paginador. Se utiliza para generar los ids de los input hidden usados como parámetros.</description>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+			<description>URI para los enlaces de paginación.</description>
+			<name>base</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Indica si se muestra el texto descriptivo de registros encontrados.
+				Si no se utiliza el atributo, por defecto muestra el texto.
+			</description>
+			<name>showText</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Indica si se muestran los separadores de los enlaces del paginador, estos son los caractéres: [ / ] [ / ].
+				Si no se utiliza el atributo, por defecto muestra los separadores.
+			</description>
+			<name>showSeparators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Indica si los enlaces generados realizan un submit del formulario (valor true) o ejecuta un href (valor false).
+				Si no se utiliza el atributo, por defecto genera un href.
+			</description>
+			<name>submit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Id del elemento html que ejecuta el submit del formulario, puede ser un boton, un enlace o una imagen.
+				Para ejecutar el submit cuando se de clic sobre el enlace, el atributo submit debe ser true.
+				Solamente se tiene en cuenta si el atributo submit es true.
+			</description>
+			<name>submitActionId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE PAGINACION ***********************************-->
+		<attribute>
+			<description>
+				Propiedad del bean de sesión que contiene el número total de items que resultan de la consulta sin paginar.
+				Normalmente es la propiedad totalRecords del PageData del componente de paginación.
+			</description>
+			<name>totalItems</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Propiedad del bean de sesión que contiene el número de página actual.
+				Normalmente es la propiedad pageNumber del PageData del componente de paginación.
+			</description>
+			<name>actualPageNumber</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Propiedad del bean de sesión que contiene el tamaño de página.
+				Normalmente es la propiedad pageSize del PageData del componente de paginación.
+			</description>
+			<name>pageSize</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Propiedad del bean de sesión que contiene el tamaño de la barra de paginación.
+				Normalmente es la propiedad barSize del PageData del componente de paginación.
+			</description>
+			<name>barSize</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE ESTILOS ***********************************-->
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al TAG de paginación.</description>
+			<name>tagStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle a los enlaces de desplazamiento a la izquierda.</description>
+			<name>leftArrowStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle a los enlaces de desplazamiento a la derecha.</description>
+			<name>rightArrowStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al indicador de página actual.</description>
+			<name>actualStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle a los enlaces de números de página.</description>
+			<name>linkStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>						
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al texto descriptivo de registros encontrados.</description>
+			<name>textStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle a los separadores de enlaces, estos son los caractéres: [ / ] [ / ].</description>
+			<name>separatorsStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE TEXTO ***********************************-->
+		<attribute>
+			<description>
+				Texto a mostrar cuando no se encuentran registros como resultado de la consulta.
+				Si no se utiliza el atributo, por defecto muestra el texto: "No se encontraron registros.".
+			</description>
+			<name>textNoItemsFound</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+			<description>
+				Texto a mostrar cuando se encuentra un solo registro como resultado de la consulta.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Un registro encontrado.".
+			</description>
+			<name>textOneItemFound</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto descriptivo a mostrar en el paginador cuando se encuentra mas de un registro.
+				Debe ser un patrón que cumpla la sintaxis descrita en la documentación de la clase java.text.MessageFormat.
+				Los parámetros válidos en el patrón son los siguientes:
+				{0} - Corresponde al número del registro inicial mostrado.
+				{1} - Corresponde al número del registro final mostrado.
+				{2} - Corresponde al número total de registros encontrados.
+				{3} - Corresponde al número de página mostrada.
+				{4} - Corresponde al número total de páginas encontradas.
+				No es obligatorio usar todos los parámetros, se pueden usar los que se deseen.				
+				Si no se utiliza el atributo, por defecto muestra el patron de texto: "Registros {0} a {1} de {2}. Página {3} de {4}.".
+			</description>
+			<name>textItemsFoundPattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto que se debe mostrar como etiqueta del enlace de primera página.
+				Si se utiliza el atributo srcImgFirst, se muestra la imagen y no esta etiqueta.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Primera".
+			</description>
+			<name>textFirst</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto que se debe mostrar como etiqueta del enlace de última página.
+				Si se utiliza el atributo srcImgLast, se muestra la imagen y no esta etiqueta.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Ultima".
+			</description>
+			<name>textLast</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto que se debe mostrar como etiqueta del enlace de páginas previas.
+				Si se utiliza el atributo srcImgPrevious, se muestra la imagen y no esta etiqueta.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Previas".
+			</description>
+			<name>textPrevious</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto que se debe mostrar como etiqueta del enlace de páginas próximas.
+				Si se utiliza el atributo srcImgNext, se muestra la imagen y no esta etiqueta.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Próximas".
+			</description>
+			<name>textNext</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+			<description>
+				Texto descriptivo a mostrar en el paginador cuando se posiciona el cursor sobre un link de página.
+				Debe ser un patrón que cumpla la sintaxis descrita en la documentación de la clase java.text.MessageFormat.
+				El parámetro válido en el patrón es el siguiente:
+				{0} - Corresponde al número de página que se consultará cuando se de clic sobre el link.
+				Si no se utiliza el atributo, por defecto muestra el patrón de texto: "Ir a página {0}".
+			</description>
+			<name>textGoToPattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE IMAGENES ***********************************-->
+		<attribute>
+			<description>Ruta de la imagen a utilizar en el enlace de primera página.</description>
+			<name>srcImgFirst</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Ruta de la imagen a utilizar en el enlace de última página.</description>
+			<name>srcImgLast</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Ruta de la imagen a utilizar en el enlace de páginas previas.</description>
+			<name>srcImgPrevious</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Ruta de la imagen a utilizar en el enlace de páginas próximas.</description>
+			<name>srcImgNext</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>				
+	</tag>
+	<!-- ******************************************************************************************
+	**************************************  TAG DE ORDENAMIENTO  **********************************
+	***********************************************************************************************-->
+	<tag>
+		<name>order</name>
+		<tagclass>co.com.ibm.components.pager.OrderTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<!-- ************************* ATRIBUTOS BASICOS DEL TAG ***********************************-->
+		<attribute>
+			<description>Id único del elemento de ordenamiento. Se utiliza para generar los ids de los input hidden usados como parámetros.</description>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>URI para los enlaces de ordenamiento.</description>
+			<name>base</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Indica si los enlaces de ordenamiento se muestran horizontal o verticalmente.
+				Si no se utiliza el atributo, por defecto muestra los enlaces verticalmente.
+			</description>
+			<name>horizontalTag</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Indica si los enlaces generados realizan un submit del formulario (valor true) o ejecuta un href (valor false).
+				Si no se utiliza el atributo, por defecto genera un href.
+			</description>
+			<name>submit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Id del elemento html que ejecuta el submit del formulario, puede ser un boton, un enlace o una imagen.
+				Para ejecutar el submit cuando se de clic sobre el enlace, el atributo submit debe ser true.
+				Solamente se tiene en cuenta si el atributo submit es true.
+			</description>
+			<name>submitActionId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE ORDENAMIENTO ***********************************-->
+		<attribute>
+			<description>
+				Número de indice o nombre de columna por el cual ordena este enlace.
+				Este debe ser un valor constante y se debe sacar directamente del query.
+				El indice corresponde a la posición del campo en la sentencia select iniciando desde uno.				
+			</description>
+			<name>orderField</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Propiedad del bean de sesión que contiene el número de indice o nombre del campo de ordenamiento actual.
+				Normalmente es la propiedad orderField del PageData del componente de paginación.
+			</description>
+			<name>actualOrderField</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<attribute>
+			<description>
+				Propiedad del bean de sesión que indica si el ordenamiento es ascendente.
+				Normalmente es la propiedad orderAsc del PageData del componente de paginación.
+			</description>
+			<name>orderAsc</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<!-- ************************* ATRIBUTOS DE TEXTO ***********************************-->
+		<attribute>
+			<description>
+				Texto a mostrar como etiqueta del TAG, este texto se muestra al lado izquierdo de los enlaces de ordenamiento.
+				Si no se utiliza el atributo, no se coloca ningun texto, solo se muestran los enlaces.
+			</description>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto a mostrar como etiqueta del enlace de ordenamiento descendente.
+				Si se utiliza el atributo srcImageDesc se muestra la imágen y no esta etiqueta.
+				Si no se utiliza el atributo, por defecto muestra el símbolo "mayor que".
+			</description>
+			<name>textOrderDesc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto a mostrar como etiqueta del enlace de ordenamiento ascendente.
+				Si se utiliza el atributo srcImageAsc se muestra la imágen y no esta etiqueta.
+				Si no se utiliza el atributo, por defecto muestra el símbolo "menor que".
+			</description>
+			<name>textOrderAsc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+			<description>
+				Texto a mostrar cuando se posiciona el cursor sobre el enlace de ordenamiento ascendente.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Ordenar ascendentemente".
+			</description>
+			<name>textTitleOrderAsc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>
+				Texto a mostrar cuando se posiciona el cursor sobre el enlace de ordenamiento descendente.
+				Si no se utiliza el atributo, por defecto muestra el texto: "Ordenar descendentemente".
+			</description>
+			<name>textTitleOrderDesc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE IMAGENES ***********************************-->
+		<attribute>
+			<description>Ruta de la imagen a utilizar en el enlace de ordenamiento ascendente.</description>
+			<name>srcImageAsc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<attribute>
+			<description>Ruta de la imagen a utilizar en el enlace de ordenamiento descendente.</description>
+			<name>srcImageDesc</name>
+			<required>false</required>					
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Ruta de la imagen a utilizar para indicar que el ordenamiento actual es ascendente.</description>
+			<name>srcImageActualAsc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>   
+		<attribute>
+			<description>Ruta de la imagen a utilizar para indicar que el ordenamiento actual es descendente.</description>
+			<name>srcImageActualDesc</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<!-- ************************* ATRIBUTOS DE ESTILOS ***********************************-->
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al TAG de ordenamiento.</description>
+			<name>styleClassTag</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al enlace de ordenamiento ascendente.</description>
+			<name>styleClassAscOrderLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al enlace de ordenamiento descendente.</description>
+			<name>styleClassDescOrderLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>Nombre de la clase de estilos para aplicarle al indicador de dirección de ordenamiento actual.</description>
+			<name>styleClassActualOrder</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+		<attribute>
+			<description>
+				Nombre de la clase de estilos para aplicarle a la etiqueta del TAG, es decir,
+				al texto que se muestra al lado izquierdo de los enlaces.</description>
+			<name>styleClassLabel</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>	
+</taglib>
+

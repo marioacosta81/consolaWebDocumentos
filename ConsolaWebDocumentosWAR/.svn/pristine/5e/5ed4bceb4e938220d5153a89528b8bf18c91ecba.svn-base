@@ -1,0 +1,27 @@
+package com.davivienda.web.menu.apertura.productos.online.bean;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.davivienda.web.menu.apertura.productos.online.util.Constantes;
+import com.davivienda.web.menu.apertura.productos.online.util.SingletonCache;
+import com.davivienda.web.menu.apertura.productos.online.util.WcmUtil;
+
+public class MenuLoadManagedBean {
+
+	private static Logger logger = LoggerFactory.getLogger(SingletonCache.class.getName());
+	
+	public String loadMenu(String canal){
+		logger.debug("Consulta menu canal " + canal);
+		try {
+			if ( Constantes.ID_CANAL_DAVICOM.equals(canal) ) {
+				return WcmUtil.getMenuParaDesktop();
+			} else {
+				return WcmUtil.getMenuParaMovil();
+			}
+		} catch (Exception e) {
+			logger.error("Error al consultar menu : " + e.getMessage(), e);
+			return "";
+		}
+	}
+}

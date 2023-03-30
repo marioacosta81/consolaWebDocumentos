@@ -1,0 +1,32 @@
+.bx-wrapper {-moz-box-shadow: none;-webkit-box-shadow: none;box-shadow: none;border: none;background: none;width:100%;z-index:1;margin: 60px 0;}
+
+div.item{min-height:1px;position: relative;border-radius: 500px;overflow: hidden;}
+
+.data-caption{position: absolute;z-index: 1;left: 0;top: 35%;border-radius: 500px;text-align: center;padding: 0 30px;width: 100%;}
+.data-caption h2{font-family: 'MyriadProBlackCondIt_0';margin: 0;color: #fff;font-size: 38px;line-height: normal;}
+.data-caption p{color: #fff;line-height: normal;margin: 0;font-size: 20px;}
+
+/************MEDIAQUERIES**************/
+
+/*initial*/1
+@media screen and (max-width: 990px){		
+	.data-guide div > span{margin: 5px 0;}
+	section p,.data-form label.cform,.input-group-check label,section h4.data-intro,.data-preload p,.alert-pass span,.intro ul li{font-size: 16px;}
+	section p,.data-slider{margin: 20px 0;}
+}
+
+/*tablet*/
+@media screen and (max-width: 750px){	
+	body{background: #e8e8e8;}
+    button.backbtn,button.closebtn{padding: 20%;}	
+    .data-caption h2,.data-title h1{font-size: 35px;}
+    .data-caption p,section p,.data-dropmenu h4 span,section h4.data-intro,.data-preload p,.intro ul li{font-size: 14px;}
+    .data-caption{padding: 0 11px;width: 100%;}
+}
+
+/*Small devices*/
+@media screen and (max-width: 480px){		
+	button.backbtn, button.closebtn{padding: 30%;}
+	section p,.data-dropmenu h4,.data-form label.cform,.data-form input[type="text"], .data-form input[type="email"], .data-form input[type="tel"], .data-form textarea,.data-form select,.resultform span,.resultform label,.data-bar-message h6,.intro ul li,div.modal-content p{font-size: 13px;}
+	.data-caption h2{font-size: 22px;}
+}

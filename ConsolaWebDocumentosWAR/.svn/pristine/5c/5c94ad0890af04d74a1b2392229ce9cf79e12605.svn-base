@@ -1,0 +1,242 @@
+/**
+ * Copyright (c) 2015 DAVIVIENDA. All Rights Reserved.
+ * 
+ * This software is confidential and propietary information of DAVIVIENDA.
+ * ("Confidential Information"). It may not be copied or reproduced in any
+ * manner without the express written permission of DAVIVIENDA.
+ */
+package com.davivienda.web.menu.apertura.productos.online.util;
+
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.charset.Charset;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * 
+ * <b>IBM. Global Bussiness Services AMS Colombia.</b>
+ *
+ * <p>Description: </p>
+ *
+ * @author <A HREF="mailto:cguzmanp@co.ibm.com">Carlos Guzman Pulido</A> <p>
+ * <b>Fecha de creación(dd/mmm/aaaa): </b> [Mar 25, 2015]
+ *
+ * @version [1.0, Mar 25, 2015]
+ *
+ */
+public class WcmUtil {
+
+	/** Serial de la clase */
+	private static final long serialVersionUID = -198715785749193523L;
+
+	private static Logger logger = LoggerFactory.getLogger(WcmUtil.class.getName());
+	
+	private static int maxFileSize;
+	
+	public static String getMenuParaMovil() throws Exception {
+    	SingletonCache cache = SingletonCache.getInstance();
+        return (String) cache.obtenerElemento(Constantes.WCM_MENU_PARA_MOVIL, Constantes.WCM_MENU_PARA_MOVIL);
+	}
+	
+	public static String getMenuParaDesktop() throws Exception {
+    	SingletonCache cache = SingletonCache.getInstance();
+        return (String) cache.obtenerElemento(Constantes.WCM_MENU_PARA_DESKTOP, Constantes.WCM_MENU_PARA_DESKTOP);
+	}
+
+    /**
+     * 
+     * @param urlWcm
+     * @return String
+     */
+    public static String loadContent(String urlWcm){
+        StringBuilder sb = new StringBuilder();
+        BufferedReader in = null;
+        InputStreamReader inputStreamReader = null;
+        try{  
+            URL url = new URL(urlWcm);
+            URLConnection conn = url.openConnection();
+            conn.setConnectTimeout(Integer.parseInt(Util.getProperty(Constantes.PARAM_WCM_READ_TIMEOUT)));
+            conn.setReadTimeout(Integer.parseInt(Util.getProperty(Constantes.PARAM_WCM_READ_TIMEOUT)));
+            HttpURLConnection httpConn = (HttpURLConnection) conn;
+            
+            if (HttpURLConnection.HTTP_OK == httpConn.getResponseCode() ) {
+	            inputStreamReader = new InputStreamReader(conn.getInputStream(), Charset.forName("UTF-8"));
+	            in = new BufferedReader(inputStreamReader);
+	            String inputLine;
+	            while((inputLine = in.readLine()) != null){ 
+	                sb.append(inputLine);
+	            }
+            }
+        }catch(Exception e){
+            logger.error("Ocurrio un error al invocar URL: {}\nERROR: {}", urlWcm, e.getMessage());
+        } finally {
+            if ( in != null ){
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    logger.warn("No se pudo cerrar BufferedReader del WCM");
+                }
+            }
+            
+            if ( inputStreamReader != null ){
+                try {
+                    inputStreamReader.close();
+                } catch (IOException e) {
+                    logger.warn("No se pudo cerrar InputStreamReader del WCM");
+                }
+            }
+        }
+        return sb.toString(); 
+    }
+    
+    /**
+     * 
+     * @param urlWcm
+     * @return String
+     */
+    public static byte[] loadDocument(String urlWcm){
+    	
+    	if ( maxFileSize == 0 ) {
+    		try {
+    			maxFileSize = Integer.parseInt(Util.getProperty(Constantes.PARAM_WCM_MAX_FILE_SIZE_BYTES));
+    		}catch(Exception e){
+    			maxFileSize = Constantes.WCM_DEFAULT_MAX_FILE_SIZE;
+            }
+    	}
+    	
+    	InputStream inputStream = null;
+        try{  
+            URL url = new URL(urlWcm);
+            URLConnection conn = url.openConnection();
+            conn.setConnectTimeout(Integer.parseInt(Util.getProperty(Constantes.PARAM_WCM_READ_TIMEOUT)));
+            conn.setReadTimeout(Integer.parseInt(Util.getProperty(Constantes.PARAM_WCM_READ_TIMEOUT)));
+            HttpURLConnection httpConn = (HttpURLConnection) conn;
+     
+            if (HttpURLConnection.HTTP_OK == httpConn.getResponseCode() ) {
+            	inputStream = httpConn.getInputStream();
+            	
+                byte[] buffer = new byte[16384];
+                ByteArrayOutputStream file = new ByteArrayOutputStream();
+                int bytesRead = -1;
+                while ( (bytesRead = inputStream.read(buffer)) != -1 ) {
+                	file.write(buffer, 0, bytesRead);
+                }
+                logger.debug("maxFileSize: " + maxFileSize);
+                logger.debug("file.size(): " + file.size());
+                if ( file.size() > maxFileSize ) {
+                	throw new Exception("Archivo supera límite permitido");//temporal
+                }
+                return file.toByteArray();
+            }
+        }catch(Exception e){
+            logger.error("Ocurrio un error al invocar URL: {}\nERROR: {}", urlWcm, e.getMessage());
+        } finally {
+            if ( inputStream != null ){
+                try {
+                	inputStream.close();
+                } catch (IOException e) {
+                    logger.warn("No se pudo cerrar BufferedReader del WCM");
+                }
+            }
+        }
+        return null; 
+    }
+
+    /**
+     * 
+     * @param cmpntname
+     * @return String
+     */
+    public static String buildContentUrl(String component){
+
+        StringBuilder sb = new StringBuilder();
+
+        String wcmUrl = Util.getProperty(Constantes.PARAM_WCM_URL_BASE);
+        String wcmContext = Util.getProperty(Constantes.PARAM_WCM_CONTEXT_CONTENT);
+        String wcmLibrary = Util.getProperty(Constantes.PARAM_WCM_LIBRARY);
+        String wcmSiteArea = Util.getProperty(Constantes.WCM_PREFIX.concat(component).concat(Constantes.WCM_SITE_AREA_SUFIX));
+        
+       logger.debug("{} wcmUrl: {} ", component, wcmUrl);
+       logger.debug("{} wcmContext: {} ", component, wcmContext);
+       logger.debug("{} wcmLibrary: {} ", component, wcmLibrary);
+       logger.debug("{} wcmSiteArea: {} ", component, wcmSiteArea);
+
+        if(null != wcmUrl && null != wcmContext && null != wcmLibrary && null != wcmSiteArea ){
+        	sb.append(wcmUrl);
+        	sb.append(wcmContext);
+        	sb.append(Constantes.CARACTER_SLASH);
+        	sb.append(wcmLibrary);
+        	sb.append(Constantes.CARACTER_SLASH);
+            sb.append(wcmSiteArea);
+        }else{
+            
+            if (null == wcmUrl) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.PARAM_WCM_URL_BASE);
+            }
+            if (null == wcmContext) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.PARAM_WCM_CONTEXT_CONTENT);
+            }
+            if (null == wcmLibrary) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.PARAM_WCM_LIBRARY);
+            }
+            if (null == wcmSiteArea) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.WCM_PREFIX.concat(component).concat(Constantes.WCM_SITE_AREA_SUFIX));
+            }
+        }
+
+        return sb.toString();
+    }
+    
+    /**
+     * 
+     * @param cmpntname
+     * @return String
+     */
+    public static String buildDocumentUrl(String documentName){
+
+        StringBuilder sb = new StringBuilder();
+
+        String wcmUrl = Util.getProperty(Constantes.PARAM_WCM_URL_BASE);
+        String wcmContext = Util.getProperty(Constantes.PARAM_WCM_CONTEXT_DOCUMENTS);
+        String wcmLibrary = Util.getProperty(Constantes.PARAM_WCM_LIBRARY);
+        String wcmDocument = Util.getProperty(Constantes.WCM_PREFIX.concat(documentName).concat(Constantes.WCM_DOCUMENTS_SUFIX));
+        
+       logger.debug("{} wcmUrl: {} ", documentName, wcmUrl);
+       logger.debug("{} wcmContext: {} ", documentName, wcmContext);
+       logger.debug("{} wcmLibrary: {} ", documentName, wcmLibrary);
+       logger.debug("{} wcmSiteArea: {} ", documentName, wcmDocument);
+
+        if(null != wcmUrl && null != wcmContext && null != wcmLibrary && null != wcmDocument ){
+        	sb.append(wcmUrl);
+        	sb.append(wcmContext);
+        	sb.append(Constantes.WCM_PARAM_NAME_BIBLIO);
+        	sb.append(wcmLibrary);
+        	sb.append(Constantes.WCM_PARAM_NAME_NOMBRE);
+            sb.append(wcmDocument);
+        }else{
+            
+        	if (null == wcmUrl) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.PARAM_WCM_URL_BASE);
+            }
+            if (null == wcmContext) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.PARAM_WCM_CONTEXT_DOCUMENTS);
+            }
+            if (null == wcmLibrary) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.PARAM_WCM_LIBRARY);
+            }
+            if (null == wcmDocument) {
+                logger.debug("Se esperaba valor diferente a nulo en {}", Constantes.WCM_PREFIX.concat(documentName).concat(Constantes.WCM_DOCUMENTS_SUFIX));
+            }
+        }
+
+        return sb.toString();
+    }
+}

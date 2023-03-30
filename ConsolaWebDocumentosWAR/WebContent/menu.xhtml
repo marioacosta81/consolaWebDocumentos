@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:loadBundle basename="resources.application" var="msg" />
+
+<h:head>
+	<title><h:outputText value="#{msg.welcomeTitle}" /></title>
+	<h:outputScript id="jsf" library="javax.faces" name="jsf.js" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css"
+		href="/ConsolaWebDocumentos/Resources/css/style-desktop.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="/ConsolaWebDocumentos/Resources/css/style-mobile.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="/ConsolaWebDocumentos/Resources/css/theme.css"></link>
+	<script type="text/javascript"
+		src="/ConsolaWebDocumentos/Resources/js/main.js"></script>
+	<script type="text/javascript"
+		src="/ConsolaWebDocumentos/Resources/js/ConsolaWeb.js"></script>
+</h:head>
+
+<body>
+	<div class="bannerP">
+		<div class="banner-content">
+			<h1 style="color: white">Consola Web Documentos</h1>
+		</div>
+	</div>
+	<div class="banner" style="padding: 5px">
+		<div class="banner-content">
+			<h:outputText value="Bienvenido(a) #{user}" style="color:red"></h:outputText>
+			<h:button value="Cerrar Sesion" style="float:right"></h:button>
+			<br />
+			<h:outputText
+				value="Fecha y hora de ingreso: #{documentosBean.fechaHoraActual}"
+				style="color:red"></h:outputText>
+		</div>
+	</div>
+	<div class="contenedor-menu">
+		<div class="vertical-menu">
+			<a href="/ConsolaWebDocumentos/menu.xhtml" class="active">Consulta
+				Documentos</a> <a href="/ConsolaWebDocumentos/menu2.xhtml">Consulta
+				Errores</a>
+		</div>
+	</div>
+	<div id="consultaDocumentos" class="contenedorVista">
+		<h:outputText value="Usted se encuentra en: Consulta Documentos"
+			style="color:red"></h:outputText>
+		<div class="container">
+			<div class="row">
+				<div class="col-50">
+					<h3>Filtros</h3>
+				</div>
+				<div class="col-50" style="margin: auto">
+					<p:outputPanel id="mostrar">
+						<p:commandLink update="mostrar filtros"
+							action="#{documentosBean.showFilters}"
+							rendered="#{!documentosBean.mostrarFiltros}">
+							<h:outputText value="Mostrar Filtros" />
+						</p:commandLink>
+						<p:commandLink update="mostrar filtros"
+							action="#{documentosBean.hiddeFilters}"
+							rendered="#{documentosBean.mostrarFiltros}">
+							<h:outputText value="Ocultar Filtros" />
+						</p:commandLink>
+					</p:outputPanel>
+				</div>
+			</div>
+			<p:outputPanel id="filtros">
+				<h:form id="formConsultaDocumentos"
+					rendered="#{documentosBean.mostrarFiltros}">
+					<p:growl id="growl" showDetail="true" />
+					<div class="row">
+						<div class="col-20">
+							<label for="fecha">* Fecha</label>
+							<p:calendar id="fecha" name="fecha" pattern="yyyy-mm-dd"
+								value="#{documentosBean.date}" showOn="button" required="true"
+								requiredMessage="Fecha: Inserte una fecha valida (yyyy-mm-dd)"
+								timeZone="America/Bogota">
+								<f:convertDateTime type="date" pattern="yyyy-mm-dd" />
+							</p:calendar>
+							<div class="container">
+								<h3>Rango de Horas</h3>
+								<label for="hora_inicio">* Hora inicio</label>
+								<p:datePicker id="hora_inicio" name="hora_inicio"
+									value="#{documentosBean.hourInit}" timeOnly="true"
+									placeholder="hh24:mm:ss" pattern="HH:mm:ss" showSeconds="true"
+									showMilliseconds="true" required="true"
+									requiredMessage="Hora inicio: Inserte una hora valida (hh:mm:ss) 24 horas" />
+								<label for="hora_final">* Hora final</label>
+								<p:datePicker id="hora_final" name="hora_final"
+									value="#{documentosBean.hourFinal}" timeOnly="true"
+									placeholder="hh24:mm:ss" pattern="HH:mm:ss" showSeconds="true"
+									showMilliseconds="true" required="true"
+									requiredMessage="Hora inicio: Inserte una hora valida (hh:mm:ss) 24 horas" />
+							</div>
+						</div>
+						<div class="col-20">
+							<label for="identificacion">Cedula</label>
+							<p:inputNumber id="identificacion" name="identificacion"
+								placeholder="Numero de identificacion" thousandSeparator=""
+								value="#{documentosBean.identificacion}" minValue="0"
+								maxValue="999999999999" decimalPlaces="0" autocomplete="off">
+							</p:inputNumber>
+							<label for="proceso">Id Proceso</label>
+							<p:inputText id="proceso" name="proceso" placeholder="Id proceso"
+								value="#{documentosBean.proceso}"></p:inputText>
+							<label for="plantilla">Id plantilla</label>
+							<p:selectOneMenu style="width:80%"
+								value="#{documentosBean.plantilla}">
+								<f:selectItems value="#{documentosBean.listaPlantillas}"></f:selectItems>
+							</p:selectOneMenu>
+							<label for="paquete">Id paquete</label>
+							<p:selectOneMenu style="width:80%"
+								value="#{documentosBean.paquete}">
+								<f:selectItems value="#{documentosBean.listaPaquetes}"></f:selectItems>
+							</p:selectOneMenu>
+						</div>
+						<div class="col-40">
+							<label> <h:selectBooleanCheckbox name="correo"
+									value="#{documentosBean.correo}">Pendiente correo </h:selectBooleanCheckbox>
+							</label> <label> <h:selectBooleanCheckbox name="filenet"
+									value="#{documentosBean.filenet}">Pendiente filenet </h:selectBooleanCheckbox>
+							</label> <label> <h:selectBooleanCheckbox name="documento"
+									value="#{documentosBean.documento}">Pendiente documento </h:selectBooleanCheckbox>
+							</label>
+							<h4 style="color: red">(*) Campo Obligatorio</h4>
+						</div>
+					</div>
+					<h:commandButton id="buscar" styleClass="ui-buttom" value="Buscar"
+						actionListener="#{documentosBean.consultarDocumentos}"
+						style="margin-left: 45%; margin-top:5px">
+					</h:commandButton>
+				</h:form>
+			</p:outputPanel>
+		</div>
+
+		<br></br>
+
+		<div class="container">
+			<div style="height: 100%; margin: 15px;">
+				<h:form>
+					<p:dataTable value="#{documentosBean.result}" var="datos"
+						rows="#{documentosBean.pageSize}" paginator="true"
+						scrollable="true" scrollWidth="100%" scrollHeight="500"
+						lazy="true" dynamic="true" id="tablaDocumeto"
+						paginatorAlwaysVisible="false" widgetVar="tablaDocumeto"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+						rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+						<p:columnGroup type="header">
+							<p:row>
+								<!--Campos Iniciales -->
+								<p:column headerText="Identificación Cliente"
+									style="width:110px; text-align:center" rowspan="2">
+								</p:column>
+								<p:column headerText="Id Proceso"
+									style="width:80px; text-align:center" rowspan="2">
+								</p:column>
+								<p:column headerText="Id Paquete" style="width:258px; text-align:center"
+									rowspan="2">
+								</p:column>
+								<p:column headerText="Id Plantilla" style="width:258px; text-align:center"
+									rowspan="2">
+								</p:column>
+								<p:column headerText="Canal"
+									style="width:30px; text-align:center" rowspan="2">
+								</p:column>
+								<p:column headerText="Fecha Solicitud"
+									style="width:72px; text-align:center" rowspan="2">
+								</p:column>
+								<p:column headerText="Fecha Actualización"
+									style="width:95px; text-align:center" rowspan="2">
+								</p:column>
+
+								<!--Campos para Generacion de Documentos -->
+								<p:column headerText="Generacion Documentos"
+									style="width:320px; border-width: 0px 1px 1px 1px" colspan="4" />
+
+								<!--Campos para Gestor Filenet -->
+								<p:column headerText="Filenet"
+									style="width:480px; border-width: 0px 1px 1px 1px" colspan="6" />
+
+								<!--Campos para Gestor Filenet -->
+								<p:column style="border-width: 0px 1px 1px 1px; width:400px"
+									headerText="Correo" colspan="5" />
+
+								<!--Campos Generales -->
+								<p:column headerText="Request Inicial" exportable="false"
+									style="width:70px; text-align:center" rowspan="2">
+								</p:column>
+								<p:column headerText="Errores" exportable="false"
+									style="width:70px; text-align:center" rowspan="2">
+								</p:column>
+							</p:row>
+
+							<p:row>
+								<!--Campos para Generacion de Documentos -->
+								<p:column headerText="Generado"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Intentos"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Creación"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Request"
+									style="width:80px; text-align:center">
+								</p:column>
+
+								<!--Campos para Gestor Filenet -->
+								<p:column headerText="Requerido"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Almacenado"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Intentos"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Carga"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Request"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Documento"
+									style="width:80px; text-align:center">
+								</p:column>
+
+								<!--Campos para Gestor Correo -->
+								<p:column headerText="Requerido"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Envío"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Intentos"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Fecha"
+									style="width:80px; text-align:center">
+								</p:column>
+								<p:column headerText="Request"
+									style="width:80px; text-align:center">
+								</p:column>
+							</p:row>
+						</p:columnGroup>
+
+						<!-- valores -->
+						<!--Campos Iniciales -->
+						<p:column>
+							<h:outputLabel
+								value="#{datos.tipoCliente}-#{datos.numeroIdCliente}"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.idProceso}"
+								style="text-align:center" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.idPaquete}"  style="overflow-wrap: anywhere"/>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.idPlantilla}" style="overflow-wrap: anywhere" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.canal}" style="text-align:center" />
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.fechaIngreso}"
+								style="text-align:center">
+								<f:convertDateTime pattern="MMM-dd HH:mm" locale="es_CO" />
+							</h:outputLabel>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.fechaActualizacion}"
+								style="text-align:center">
+								<f:convertDateTime pattern="MMM-dd HH:mm" locale="es_CO" />
+							</h:outputLabel>
+						</p:column>
+
+						<!--Campos para Generacion de Documentos -->
+						<p:column
+							styleClass="#{documentosBean.validarProceso(datos.documentoGenerado)}">
+							<h:outputLabel value="#{datos.documentoGenerado}"
+								style="text-align:center; display: none;"></h:outputLabel>
+						</p:column>
+						<p:column>
+							<h:outputLabel style="text-align:center"
+								value="#{datos.intentosGeneracionDocumento}" />
+						</p:column>
+						<p:column>
+							<h:outputLabel style="text-align:center"
+								value="#{datos.fechaGeneracionDocumento}">
+								<f:convertDateTime pattern="MMM-dd HH:mm" locale="es_CO" />
+							</h:outputLabel>
+						</p:column>
+						<p:column style="text-align: center;" exportValue="N/A">
+							<h:outputLink id="linkDescargarRR" value="DescargarArchivo"
+								target="_self" tabindex="2"
+								rendered="#{datos.requestReporteAlmacenado == 'S'}">
+								<h:graphicImage value="/Resources/images/descargar.png"
+									styleClass="#{datos.documentoGenerado eq 'N' ?  'descargar-reintento' : 'descargar'}" />
+								<f:param name="key" value="#{datos.idProceso}"></f:param>
+								<f:param name="archivo" value="RR"></f:param>
+							</h:outputLink>
+
+							<h:outputLabel value="Sin Request"
+								rendered="#{datos.requestReporteAlmacenado == 'N'}"></h:outputLabel>
+							<ui:fragment rendered="#{datos.documentoGenerado eq 'N'}">
+								<label> <h:selectBooleanCheckbox
+										id="reintentoGeneracion" name="reintentoGeneracion"
+										value="#{documentosBean.checkedGeneracion[datos.idProceso]}">Reintentar 
+							          	<f:ajax event="click"></f:ajax>
+									</h:selectBooleanCheckbox>
+								</label>
+							</ui:fragment>
+						</p:column>
+
+						<!--Campos para Gestor Filenet -->
+						<p:column
+							styleClass="#{datos.requiereEnvioFilenet ne null and datos.requiereEnvioFilenet eq 'S' ? 'requerido' : ''}">
+							<h:outputLabel value="#{datos.requiereEnvioFilenet}"
+								style="text-align:center; display: none;"></h:outputLabel>
+						</p:column>
+						<p:column
+							styleClass="#{documentosBean.validarProceso(datos.documentoAlmacenado)}">
+							<h:outputLabel value="#{datos.documentoAlmacenado}"
+								style="text-align:center; display:none;"></h:outputLabel>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.intentosEnvioFilenet}"
+								style="text-align:center"></h:outputLabel>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.fechaEnvioFilenet}"
+								style="text-align:center">
+								<f:convertDateTime pattern="MMM-dd HH:mm" locale="es_CO" />
+							</h:outputLabel>
+						</p:column>
+						<p:column style="text-align: center;" exportValue="N/A">
+
+							<h:outputLabel value="No Aplica"
+								rendered="#{datos.requiereEnvioFilenet == 'N' }"></h:outputLabel>
+							<ui:fragment rendered="#{datos.requiereEnvioFilenet == 'S'}">
+								<h:outputLink id="linkDescargarRF" value="DescargarArchivo"
+									target="_self" tabindex="2"
+									rendered="#{datos.requestFilenetAlmacenado == 'S' }">
+									<h:graphicImage value="/Resources/images/descargar.png"
+										styleClass="#{datos.documentoAlmacenado eq 'N' ?  'descargar-reintento' : 'descargar'}" />
+									<f:param name="key" value="#{datos.idProceso}"></f:param>
+									<f:param name="archivo" value="RF"></f:param>
+								</h:outputLink>
+								<h:outputLabel value="Sin Request"
+									rendered="#{datos.requestFilenetAlmacenado == 'N'}"></h:outputLabel>
+								<ui:fragment rendered="#{datos.documentoAlmacenado == 'N'}">
+									<label> <h:selectBooleanCheckbox id="reintentoFilenet"
+											name="reintentoFilenet"
+											value="#{documentosBean.checkedFilenet[datos.idProceso]}">Reintentar 
+							          	<f:ajax event="click"></f:ajax>
+										</h:selectBooleanCheckbox>
+									</label>
+								</ui:fragment>
+							</ui:fragment>
+						</p:column>
+						<p:column style="text-align: center;" exportValue="N/A">
+							<h:outputLink id="linkDescargarDA" value="DescargarArchivo"
+								target="_self" tabindex="2"
+								rendered="#{datos.documentoAlmacenado == 'S'}">
+								<h:graphicImage value="/Resources/images/descargar.png"
+									styleClass="descargar" />
+								<f:param name="key" value="#{datos.idProceso}"></f:param>
+								<f:param name="archivo" value="DA"></f:param>
+							</h:outputLink>
+
+							<h:outputLabel value="Sin Documento"
+								rendered="#{datos.documentoAlmacenado == 'N'}"></h:outputLabel>
+						</p:column>
+
+						<!--Campos para Gestor Correo -->
+						<p:column
+							styleClass="#{datos.requiereEnvioCorreo ne null and datos.requiereEnvioCorreo eq 'S' ? 'requerido' : ''}">
+							<h:outputLabel value="#{datos.requiereEnvioCorreo}"
+								style="text-align:center; display: none;"></h:outputLabel>
+						</p:column>
+						<p:column
+							styleClass="#{documentosBean.validarProceso(datos.correoEnviado)}">
+							<h:outputLabel value="#{datos.correoEnviado}"
+								style="text-align:center; display:none"></h:outputLabel>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.intentosEnvioCorreo}"
+								style="text-align:center"></h:outputLabel>
+						</p:column>
+						<p:column>
+							<h:outputLabel value="#{datos.fechaEnvioCorreo}"
+								style="text-align:center">
+								<f:convertDateTime pattern="MMM-dd HH:mm" locale="es_CO" />
+							</h:outputLabel>
+						</p:column>
+						<p:column style="text-align: center;" exportValue="N/A">
+							<h:outputLabel value="No Aplica"
+								rendered="#{datos.requiereEnvioCorreo eq 'N' }" />
+							<ui:fragment rendered="#{datos.requiereEnvioCorreo == 'S'}">
+								<h:outputLink id="linkDescargarRC" value="DescargarArchivo"
+									target="_self" tabindex="2"
+									rendered="#{datos.requestCorreoAlmacenado eq 'S'}">
+									<h:graphicImage value="/Resources/images/descargar.png"
+										styleClass="#{datos.correoEnviado eq 'N' ?  'descargar-reintento' : 'descargar'}" />
+									<f:param name="key" value="#{datos.idProceso}"></f:param>
+									<f:param name="archivo" value="RC"></f:param>
+								</h:outputLink>
+								<h:outputLabel value="Sin Request"
+									rendered="#{datos.requestCorreoAlmacenado eq 'N'}"></h:outputLabel>
+								<ui:fragment rendered="#{datos.correoEnviado eq 'N'}">
+									<label> <h:selectBooleanCheckbox id="reintentoCorreo"
+											name="reintentoCorreo"
+											value="#{documentosBean.checkedCorreo[datos.idProceso]}"
+											rendered="#{datos.requiereEnvioCorreo eq 'S' and datos.correoEnviado eq 'N'}">Reintentar 
+							        	<f:ajax event="click"></f:ajax>
+										</h:selectBooleanCheckbox>
+									</label>
+								</ui:fragment>
+							</ui:fragment>
+						</p:column>
+
+						<!--Campos Generales -->
+						<p:column style="text-align: center;" exportable="false">
+							<h:outputLink id="linkDescargarRI" value="DescargarArchivo"
+								target="_self" tabindex="2"
+								rendered="#{datos.requestInicialAlmacenado == 'S'}">
+								<h:graphicImage value="/Resources/images/descargar.png"
+									styleClass="descargar" />
+								<f:param name="key" value="#{datos.idProceso}"></f:param>
+								<f:param name="archivo" value="RI"></f:param>
+							</h:outputLink>
+							<h:outputLabel value="Sin Request"
+								rendered="#{datos.requestInicialAlmacenado == 'N'}" />
+						</p:column>
+						<p:column exportable="false">
+							<h:commandLink id="linkError"
+								actionListener="#{documentosBean.verErrores}">
+								<h:outputText value="Ver errores" />
+								<f:param name="key" value="#{datos.idProceso}"></f:param>
+							</h:commandLink>
+						</p:column>
+
+					</p:dataTable>
+
+					<div class="row">
+						<div class="col-95" align="center">
+							<h:commandButton id="btnReintentar"
+								value="Enviar reintentos de documentos" style="margin-top:5px"
+								actionListener="#{documentosBean.reintentarProcesosDocumento}"
+								disabled="#{documentosBean.reintentoCorreo}">
+								<f:param name="key" value="#{datos.idProceso}"></f:param>
+							</h:commandButton>
+						</div>
+						<div class="col-5" align="right">
+							<h:commandLink disabled="#{documentosBean.result eq null}">
+								<h:graphicImage value="/Resources/images/Excel_icon.png"
+									styleClass="export-docs" />
+								<p:dataExporter type="xls" target="tablaDocumeto"
+									fileName="ConsultaDocumentos" />
+							</h:commandLink>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

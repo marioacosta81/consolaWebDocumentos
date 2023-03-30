@@ -1,0 +1,45 @@
+/************MEDIAQUERIES**************/
+
+/*initial*/
+@media screen and (max-width: 990px){		
+	.data-guide div > span{margin: 5px 0;}
+	section p,.data-form label.cform,.input-group-check label,section h4.data-intro,.data-preload p,.alert-pass span,.intro ul li{font-size: 16px;}
+	section p,.data-slider{margin: 20px 0;}
+}
+
+/*tablet*/
+@media screen and (max-width: 750px){	
+	body{background: #e8e8e8;}
+	.data-head ul li:first-child,.data-head ul li:last-child{width: 15%;}
+    button.backbtn,button.closebtn{padding: 20%;}	
+    #data-logo{max-width: 350px;}
+    .data-caption h2,.data-title h1{font-size: 35px;}
+    .data-caption p,section p,.data-dropmenu h4 span,section h4.data-intro,.data-preload p,.intro ul li{font-size: 14px;}
+    .data-caption{padding: 0 11px;width: 100%;}
+    /*data-modal*/
+	div.modal-content{border-radius: 0;background: #e8e8e8;}	
+	div.modal-footer button{font-size: 15px;margin: 0 auto; max-width: 150px; display: block; width: 100%;}
+	div.modal-header .close{display: none;}
+	div.modal-header{background: no-repeat;border-radius: none;}
+	.boton-size-1{max-width: 180px;width: 100%;}
+}
+
+/*Small devices*/
+@media screen and (max-width: 480px){		
+	button.backbtn, button.closebtn{padding: 30%;}
+	.data-title h1{font-size: 25px;}
+	section p,.data-dropmenu h4,.data-form label.cform,.data-form input[type="text"], .data-form input[type="email"], .data-form input[type="tel"], .data-form textarea,.data-form select,.resultform span,.resultform label,.data-bar-message h6,.intro ul li,div.modal-content p{font-size: 13px;}
+	.data-dropmenu h3,.data-preload p{font-size: 16px;}
+	.data-dropmenu h4{background-position: 0% 33%;background-size: 7%;padding: 5px 0 5px 12%;}
+	.alert-pass i{padding: 8px;font-size: 14px;}
+	.alert-pass,.alert-pass-close{margin: 20px 0;}
+	.alert-pass-close i{padding: 8px 0;font-size: 17px;max-width: 33px;width: 100%;}
+	.alert-pass-close span{max-width: 79%;width: 100%;font-size: 14px;}
+	.data-guide div > span,.result,.data-iva p,.input-group-check label,.alert-pass span,.select select{font-size: 12px;}	
+	.data-navn ul li a{font-size: 14px;padding: 3px 10px;}
+	.data-navn .progress{height: 8px;}
+	.data-navn ul{top: -10px;}	
+	.data-caption h2{font-size: 22px;}
+	.select_arrow{top: 9px;}
+	.data-bar-message img{max-width: 35px;}
+}

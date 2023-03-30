@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="MenuAperturaProductosOnline">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="MenuAperturaProductosOnlineWAR.war" deploy-path="/" handle="module:/resource/MenuAperturaProductosOnlineWAR/MenuAperturaProductosOnlineWAR">
+            <dependent-object>Module_1516910986047</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.7.jar" deploy-path="/lib" handle="module:/classpath/lib/MenuAperturaProductosOnline/Librerias/slf4j-api-1.7.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="logback-core-1.1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/MenuAperturaProductosOnline/Librerias/logback-core-1.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.17.jar" deploy-path="/lib" handle="module:/classpath/lib/MenuAperturaProductosOnline/Librerias/log4j-1.2.17.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="logback-classic-1.1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/MenuAperturaProductosOnline/Librerias/logback-classic-1.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

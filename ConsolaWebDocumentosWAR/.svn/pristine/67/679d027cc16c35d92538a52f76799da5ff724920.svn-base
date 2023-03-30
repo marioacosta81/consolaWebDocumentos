@@ -1,0 +1,82 @@
+package com.davivienda.web.menu.apertura.productos.online.listener;
+
+import java.io.File;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.joran.JoranConfigurator;
+import ch.qos.logback.core.util.StatusPrinter;
+
+import com.davivienda.web.menu.apertura.productos.online.util.Constantes;
+import com.davivienda.web.menu.apertura.productos.online.util.SingletonCache;
+import com.davivienda.web.menu.apertura.productos.online.util.Util;
+
+/**
+ * Application Lifecycle Listener implementation class HomebrokerListener
+ *
+ */
+@WebListener
+public class MenuAperturaProductosOnlineListener implements ServletContextListener {
+
+	private static Logger logger = LoggerFactory.getLogger(MenuAperturaProductosOnlineListener.class.getName());
+
+	/**
+	 * Default constructor. 
+	 */
+	public MenuAperturaProductosOnlineListener() {
+	}
+
+	/**
+	 * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+	 */
+	public void contextDestroyed(ServletContextEvent arg0) {
+		
+	}
+
+	/**
+	 * @see ServletContextListener#contextInitialized(ServletContextEvent)
+	 */
+	public void contextInitialized(ServletContextEvent arg0) {
+		try{
+			logger.info("Inicializando aplicacion Menu Apertura Productos Online {}", Constantes.VERSION);
+			String pathLogfile = Util.getProperty(Constantes.PARAM_ARCHIVO_CONFIG_LOG);
+			initLog(pathLogfile);
+			SingletonCache.getInstance();
+		}  catch (Exception e) {
+			logger.error("Error al inicializar aplicación: " + e.getMessage(), e);
+		}
+	}
+
+	/**
+	 * <p> Metodo que realiza la configuracion inicial del proyecto
+	 * este es invocado cuando se despliega la aplicacion </p>
+	 * 
+	 * 
+	 * @param pathLogfile
+	 * @param pref 
+	 * @throws DashboardBaseException 
+	 */
+	public void initLog(String pathLogfile) throws Exception {
+		if (pathLogfile != null) {
+			File f = new File(pathLogfile);
+			if (f.exists()) {
+				LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+				JoranConfigurator configurator = new JoranConfigurator();
+				configurator.setContext(context);
+				context.reset();
+				configurator.doConfigure(pathLogfile);
+				Class<?> thisClass = this.getClass();
+				logger = LoggerFactory.getLogger(thisClass.getName());
+				logger.info("Configuracion de Log cargada desde archivo {}", pathLogfile);
+				StatusPrinter.printInCaseOfErrorsOrWarnings(context);
+			}
+		}
+	}
+
+}

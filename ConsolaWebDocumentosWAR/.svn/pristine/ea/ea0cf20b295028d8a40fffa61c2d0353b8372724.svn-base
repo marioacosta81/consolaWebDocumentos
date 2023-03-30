@@ -1,0 +1,35 @@
+package com.davivienda.web.menu.apertura.productos.online.util;
+
+public final class Constantes {
+
+	public static final String VERSION = "1.0.5 Build 26-MAR-2018";
+	public static final String ID_CANAL_DAVICOM = "16";
+	public static final String PREFS_SYS_ENV_VAR = "com.davivienda.web.apertura.online.preferences";
+	public static final String CARACTER_SLASH = "/";
+	public static final String CARACTER_COMA = ",";
+	public static final int UN_MINUTO_MILIS = 60000;
+	
+	//Constantes WCM
+	public static final String WCM_PREFIX = "wcm.";
+	public static final String WCM_SITE_AREA_SUFIX = ".site.area";
+	public static final String WCM_DOCUMENTS_SUFIX = ".document.name";
+	public static final String WCM_PARAM_NAME_BIBLIO= "?biblio=";
+	public static final String WCM_PARAM_NAME_NOMBRE= "&nombre=";
+	public static final String WCM_MENU_PARA_MOVIL = "menu.para.movil";
+	public static final String WCM_MENU_PARA_DESKTOP = "menu.para.desktop";
+	public static final int  WCM_DEFAULT_MAX_FILE_SIZE = 500000;
+	
+	//Parametros del archivo de configuración
+	public static final String PARAM_ARCHIVO_CONFIG_LOG = "general.archivo.config.log";
+	public static final String PARAM_RUTA_ARCHIVO_MENSAJES_ERROR = "general.ruta.archivo.mensajes.error";
+	public static final String PARAM_NOMBRE_ARCHIVO_MENSAJES_ERROR = "general.nombre.archivo.mensajes.error";
+	public static final String PARAM_TIMEOUT_CACHE_SISTEMA = "general.timeout.cache.sistema";
+	public static final String PARAM_WCM_URL_BASE = "wcm.url.base";
+	public static final String PARAM_WCM_CONTEXT_CONTENT = "wcm.context.content";
+	public static final String PARAM_WCM_CONTEXT_DOCUMENTS = "wcm.context.documents";
+	public static final String PARAM_WCM_LIBRARY = "wcm.library";
+	public static final String PARAM_WCM_READ_TIMEOUT = "wcm.read.timeout";
+	public static final String PARAM_WCM_MAX_FILE_SIZE_BYTES = "wcm.max.file.size.bytes";
+	public static final String PARAM_HEADERS_HTTP_IP = "request.headers.http.ip";
+	
+}

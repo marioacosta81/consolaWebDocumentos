@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="oracle.eclipse.tools.weblogic.lib.system">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_151">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/Excel/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/Excel/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/Excel/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/Excel/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/Excel/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/commons-jci-fam-1.1.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/ibm-gbs-pagerBusiness-v1.0.0.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/ibm-gbs-pagerTag-v1.0.0.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/IBMExceptions_v2.3.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/javax.servlet_2.0.0.0_3-0.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/logback-classic-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/logback-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/primefaces-10.0.0-sources.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/primefaces-10.0.0.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
+</classpath>
