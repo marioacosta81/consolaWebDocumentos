@@ -6,6 +6,6 @@
         <property name="java-output-path" value="/ConsolaWebDocumentosWAR/WebContent/WEB-INF/classes"/>
         <property name="jsf.base" value="7.5.0.0"/>
         <property name="jsf.ri" value="7.5.0.0"/>
-        <property name="context-root" value="ConsolaWebDocumentos"/>
+        <property name="context-root" value="ConsolaWebDocumentos2"/>
     </wb-module>
 </project-modules>

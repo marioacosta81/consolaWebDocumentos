@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:msjSolOpGeneracionReporte xmlns:ns0="http://www.davivienda.com/GenerarReporte/SrvScnGeneracionReporte/v1" xmlns:ns1="http://www.davivienda.com/Esquemas/Framework/ContextoSolicitudTipo/v1" xmlns:ns2="http://www.davivienda.com/Esquemas/Framework/ServicioTipo/v1" xmlns:ns3="http://www.davivienda.com/Esquemas/Framework/OperacionCanalTipo/v1" xmlns:ns4="http://www.davivienda.com/Esquemas/Framework/ConsumidorTipo/v1" xmlns:ns5="http://www.davivienda.com/Esquemas/Framework/AplicacionTipo/v1" xmlns:ns6="http://www.davivienda.com/Esquemas/Framework/CanalTipo/v1" xmlns:ns7="http://www.davivienda.com/Esquemas/Framework/TerminalTipo/v1" xmlns:ns8="http://www.davivienda.com/Esquemas/Framework/HuellaDigitalDispositivoTipo/v1" xmlns:ns9="http://www.davivienda.com/Esquemas/Framework/CriterioOrdenamientoTipo/v1" xmlns:ns10="http://www.davivienda.com/Esquemas/Framework/PaginacionTipo/v1">
+   <ns0:contextoSolicitud>
+      <ns1:servicio>
+         <ns2:idServicio>EEEESSSSSSTTTOOO   EESSSS UUUNNNAAAA PPPPRRRUUUEEEBAA - archivo quemado </ns2:idServicio>
+      </ns1:servicio>
+      <ns1:operacionCanal>
+         <ns3:idSesion>1525359083124-7715742783610046410</ns3:idSesion>
+         <ns3:idTransaccion>509761</ns3:idTransaccion>
+         <ns3:fecOperacion>2021-01-28T19:51:52.375-05:00</ns3:fecOperacion>
+         <ns3:valJornada>0</ns3:valJornada>
+         <ns3:codMoneda>COP</ns3:codMoneda>
+         <ns3:codPais>CO</ns3:codPais>
+         <ns3:codIdioma>ES</ns3:codIdioma>
+      </ns1:operacionCanal>
+      <ns1:consumidor>
+         <ns4:idConsumidor>CyV_DIVISAS</ns4:idConsumidor>
+         <ns4:aplicacion>
+            <ns5:idAplicacion>CyV_DIVISAS</ns5:idAplicacion>
+         </ns4:aplicacion>
+         <ns4:canal>
+            <ns6:idCanal>1</ns6:idCanal>
+            <ns6:idHost>0</ns6:idHost>
+         </ns4:canal>
+         <ns4:terminal>
+            <ns7:idTerminal>497000</ns7:idTerminal>
+            <ns7:valOrigenPeticion>192.168.140.103</ns7:valOrigenPeticion>
+            <ns7:codUsuario>OKD</ns7:codUsuario>
+            <ns7:valPerfil>OKDAVIVIENDA</ns7:valPerfil>
+         </ns4:terminal>
+      </ns1:consumidor>
+      <ns1:huellaDigitalDispositivo>
+         <ns8:idBeacon></ns8:idBeacon>
+         <ns8:valHuellaDispositivo></ns8:valHuellaDispositivo>
+         <ns8:valTokenCookie></ns8:valTokenCookie>
+         <ns8:valTokenFSO></ns8:valTokenFSO>
+         <ns8:valHttpAccept></ns8:valHttpAccept>
+         <ns8:valHttpAcceptChars></ns8:valHttpAcceptChars>
+         <ns8:valHttpAcceptEncoding></ns8:valHttpAcceptEncoding>
+         <ns8:valHttpAcceptLanguage></ns8:valHttpAcceptLanguage>
+         <ns8:valHttpReferrer></ns8:valHttpReferrer>
+         <ns8:valUserAgent></ns8:valUserAgent>
+      </ns1:huellaDigitalDispositivo>
+      <ns1:criteriosOrdenamiento/>
+      <ns1:paginacion/>
+   </ns0:contextoSolicitud>
+   <ns0:cliente>
+      <ns0:tipoIdentificacion>01</ns0:tipoIdentificacion>
+      <ns0:numeroIdentificacion>17333307</ns0:numeroIdentificacion>
+      <ns0:valMail>ccalixto@davivienda.com</ns0:valMail>
+   </ns0:cliente>
+   <ns0:valIdPlantilla>CUENTA_DIGITAL_NIC_PN</ns0:valIdPlantilla>
+   <ns0:valVersionPlantilla>1.0.0</ns0:valVersionPlantilla>
+   <ns0:listaParametros>
+      <ns0:valParametro id="w9_nombres">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_nombre_negocio">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_individuo_cuenta">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_sociedad_anonima_c">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_sociedad_anonima_s">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_sociedad_colectiva">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_fidecomiso">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_llc_descripcion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_otro_descripcion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_codigo_beneficiario">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_codigo_excencion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_direccion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_ciudad_estado_codigopostal">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_nombre_direccion_solicitante">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_numero_seguro_social">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_numero_identificacion_empleador">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="w9_fecha">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_fecha_diligenciamiento">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_codigo_oficina">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_actualizacion_datos">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_vinculacion">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_nombres">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_primer_apellido">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_segundo_apellido">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cc">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_ti">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_rc">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_ce">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_nitext">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_carnetdiplo">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_numero_id">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_fecha_expedicion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_lugar_expedicion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_fecha_nac">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_lugar_nacimiento">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pais_nacimiento">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_femenino">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_masculino">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_direccion_residencia">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_ciudad_residencia">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_depto_residencia">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_direccion_laboral">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_ciudad_laboral">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_depto_laboral">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_correo_electronico">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_celular">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_tel_lab">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_modoemail">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_modoconsultainternet">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_modopapel">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_clientepep_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_clientepep_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_certificorecursos">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli_Exp_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli_Exp_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli__reco_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli__reco_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli_orgint_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli_orgint_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_poli_exp_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_poli_exp_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_cargo_pep">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pep_fechavin">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pep_fechadesvin">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli_Exp_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_cli_Exp_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_nombre_pep">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_Parentesco_pep">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_empleado">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_independiente">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_pensionado">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_estudiante">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_socio">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_amacasa">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_servidorpublico">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_religioso">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_comunidad_ERD">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_codigo_ciiu_ERD">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_actividad_economica_ERD">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_comunidad_I_S">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_codigo_ciiu_I_S">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_actividad_economica_I_S">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_clientconnegocio_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_clientconnegocio_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_codigo_ciiu_P">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_actividad_economica_P">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_codigo_ciiu_E_A">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_actividad_economica_E_A">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_total_ingresos">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_otros_ingresos">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_detalle_otro_ing">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_total_activos">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_total_pasivos">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_total_egresos">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_ope_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_ope_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_importacion">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_prestamos">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_exportacion">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_pago_servicios">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_inversiones">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_giros">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_remesas">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_monto_estimado">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_origen_recursos">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_ciudad">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_banco">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_numero_cuenta">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_moneda,VACIO">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_beneficiario">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_tip_prod_ex">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_num_prod_ex">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_banco_ex">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pais_ex">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_ciudad_ex">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_moneda_ex">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_tip_prod_ex2">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_num_prod_ex2">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_banco_ex2">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pais_ex2">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_ciudad_ex2">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_moneda_ex2">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_tip_prod_ex3">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_num_prod_ex3">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_banco_ex3">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pais_ex3">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_ciudad_ex3">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_moneda_ex3">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_faca_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_faca_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_nom_dec_imp">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_faca_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_faca_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_clf_trib_EU">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_seguro_TIN">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_trib_direccion">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_trib_ciudad">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_fiscal_si">
+         <ns0:valor>check.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_check_fiscal_no">
+         <ns0:valor>uncheck.png</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_pais_fiscal">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_tin_fiscal">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_item_a">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_item_b">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_item_d">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_item_g">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_dia_firma">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_mes_firma">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_year_firma">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_hora_entrevista">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_dia_entrevista">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_mes_entrevista">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_year_entrevista">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:valParametro id="nic_concepto_entrevista">
+         <ns0:valor>?</ns0:valor>
+      </ns0:valParametro>
+      <ns0:parametroTabla>
+         <ns0:valIdTabla>?</ns0:valIdTabla>
+         <ns0:columnas>
+            <ns0:valNombreColumna>?</ns0:valNombreColumna>
+         </ns0:columnas>
+         <ns0:registros>
+            <ns0:registro>
+               <ns0:valParametro id="?">
+                  <ns0:valor>?</ns0:valor>
+               </ns0:valParametro>
+            </ns0:registro>
+         </ns0:registros>
+      </ns0:parametroTabla>
+      <ns0:adjunto>
+         <valNombre>?</valNombre>
+         <valContenido>cid:903927018981</valContenido>
+         <valTipo>?</valTipo>
+      </ns0:adjunto>
+   </ns0:listaParametros>
+   <ns0:enviarCopiaCorreo>false</ns0:enviarCopiaCorreo>
+   <ns0:requiereClave>false</ns0:requiereClave>
+   <ns0:valClaveDocumento>1219488403</ns0:valClaveDocumento>
+   <ns0:retornaDocumento>true</ns0:retornaDocumento>
+   <ns0:enviarFileNet>true</ns0:enviarFileNet>
+   <ns0:requiereClaveFileNet>false</ns0:requiereClaveFileNet>
+</ns0:msjSolOpGeneracionReporte>

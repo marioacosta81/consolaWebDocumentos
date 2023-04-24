@@ -2,6 +2,7 @@ package com.davivienda.consola.web.documentos.servlet;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.OutputStream;
 import javax.ejb.EJB;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.bind.DatatypeConverter;
 
+import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -85,14 +87,19 @@ public class DescargaArchivoServlet extends HttpServlet {
     	        Object obj = ois.readObject();     
             	this.file = DatatypeConverter.parseBase64Binary(obj.toString());
             	response.setContentType("application/pdf");
-    	        nombreArchivo += "_documento.pdf";
+    	        nombreArchivo += "_documento.jpg";
             }else {
             	ConsultaRequestDataRespType datos = facade.consultaRequestDAO(idProceso);
             	if("RI".equals(archivo)) {
-            		this.file = datos.getRequestInvocacion();
+            		//this.file = datos.getRequestInvocacion();
+            		this.file = "Hola Mundo".getBytes();
              	}
             	if("RR".equals(archivo)) {
-            		this.file = datos.getRequestGeneracion();
+            		//this.file = datos.getRequestGeneracion();
+            		
+            		InputStream targetStream = getClass().getClassLoader().getResourceAsStream("resources/arcivo_no_generado.txt");
+            		
+            		this.file = IOUtils.toByteArray(targetStream);
              	}
             	if("RF".equals(archivo)) {
             		this.file = datos.getRequestFilenet();

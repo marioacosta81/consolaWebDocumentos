@@ -1,47 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="ConsolaWebDocumentos">
         <wb-resource deploy-path="/" source-path="/EarContent"/>
-        <dependent-module archiveName="slf4j-api-1.7.7.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/slf4j-api-1.7.7.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="logback-core-1.1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/logback-core-1.1.2.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="log4j-1.2.17.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/log4j-1.2.17.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="logback-classic-1.1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/logback-classic-1.1.2.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="ConsolaWebDocumentosWAR.war" deploy-path="/" handle="module:/resource/ConsolaWebDocumentosWAR/ConsolaWebDocumentosWAR">
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="IBMExceptions_v2.3.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/IBMExceptions_v2.3.jar">
+        <dependent-module archiveName="ibm-gbs-pagerBusiness-v1.0.0.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/ibm-gbs-pagerBusiness-v1.0.0.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ibm-gbs-pagerTag-v1.0.0.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/ibm-gbs-pagerTag-v1.0.0.jar">
+        <dependent-module archiveName="poi-ooxml-schemas-3.16.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/Excel/poi-ooxml-schemas-3.16.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ibm-gbs-pagerBusiness-v1.0.0.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/ibm-gbs-pagerBusiness-v1.0.0.jar">
+        <dependent-module archiveName="IBMExceptions_v2.3.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/IBMExceptions_v2.3.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="primefaces-10.0.0.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/primefaces-10.0.0.jar">
+        <dependent-module archiveName="poi-ooxml-3.16.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/Excel/poi-ooxml-3.16.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="poi-ooxml-3.16.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/Excel/poi-ooxml-3.16.jar">
+        <dependent-module archiveName="xmlbeans-2.6.0.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/Excel/xmlbeans-2.6.0.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="xmlbeans-2.6.0.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/Excel/xmlbeans-2.6.0.jar">
+        <dependent-module archiveName="commons-jci-fam-1.1.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/commons-jci-fam-1.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="commons-collections4-4.1.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/Excel/commons-collections4-4.1.jar">
+        <dependent-module archiveName="slf4j-api-1.7.7.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/slf4j-api-1.7.7.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="poi-ooxml-schemas-3.16.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/Excel/poi-ooxml-schemas-3.16.jar">
+        <dependent-module archiveName="log4j-1.2.17.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/log4j-1.2.17.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="poi-3.16.jar" deploy-path="/lib" handle="module:/classpath/lib/ConsolaWebDocumentos/Librerias/Excel/poi-3.16.jar">
+        <dependent-module archiveName="primefaces-10.0.0-sources.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/primefaces-10.0.0-sources.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="poi-3.16.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/Excel/poi-3.16.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="logback-classic-1.1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/logback-classic-1.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javax.servlet_2.0.0.0_3-0.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/javax.servlet_2.0.0.0_3-0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="logback-core-1.1.2.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/logback-core-1.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ibm-gbs-pagerTag-v1.0.0.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/ibm-gbs-pagerTag-v1.0.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="primefaces-10.0.0.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/primefaces-10.0.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections4-4.1.jar" deploy-path="/lib" handle="module:/classpath/lib/C:/proyectos/git-repositories/web_ConsolaWebDocumentos-desarrollo/ConsolaWebDocumentos/EarContent/Librerias/Excel/commons-collections4-4.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>
