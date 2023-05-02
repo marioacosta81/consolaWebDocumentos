@@ -36,8 +36,8 @@ public class PreferencesHandler implements Serializable {
 
 		try {
 
-			//String fileLoc = "C:\\scn_config\\ConsolaWebDocumentos\\consola_web_documentos.properties";
-			String fileLoc = System.getProperty(Constantes.PREFS_SYS_ENV_VAR);
+			String fileLoc = "C:\\scn_config\\ConsolaWebDocumentos\\consola_web_documentos.properties";
+			//String fileLoc = System.getProperty(Constantes.PREFS_SYS_ENV_VAR);
 			logger.info("Cargando archivo de propiedades: " + fileLoc);
 			File file = new File(fileLoc);
 

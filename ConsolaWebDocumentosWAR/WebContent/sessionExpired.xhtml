@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:loadBundle basename="resources.application" var="msg" />
+
+<h:head>
+	<title><h:outputText value="#{msg.welcomeTitle}" /></title>
+	<h:outputScript id="jsf" library="javax.faces" name="jsf.js" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/Resources/css/style-desktop.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/Resources/css/style-mobile.css"></link>
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/Resources/css/theme.css"></link>
+	<script type="text/javascript"
+		src="#{request.contextPath}/Resources/js/main.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/Resources/js/ConsolaWeb.js"></script>
+</h:head>
+
+<body>
+	<div class="bannerP">
+		<div class="banner-content">
+			<h1 style="color: white">Su sesion ha expirado</h1>
+		</div>
+	</div>
+	
+</body>
+</html>

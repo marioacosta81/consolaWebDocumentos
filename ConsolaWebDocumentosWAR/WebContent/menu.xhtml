@@ -15,15 +15,15 @@
 	<h:outputScript id="jsf" library="javax.faces" name="jsf.js" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" type="text/css"
-		href="/ConsolaWebDocumentos/Resources/css/style-desktop.css"></link>
+		href="#{request.contextPath}/Resources/css/style-desktop.css"></link>
 	<link rel="stylesheet" type="text/css"
-		href="/ConsolaWebDocumentos/Resources/css/style-mobile.css"></link>
+		href="#{request.contextPath}/Resources/css/style-mobile.css"></link>
 	<link rel="stylesheet" type="text/css"
-		href="/ConsolaWebDocumentos/Resources/css/theme.css"></link>
+		href="#{request.contextPath}/Resources/css/theme.css"></link>
 	<script type="text/javascript"
-		src="/ConsolaWebDocumentos/Resources/js/main.js"></script>
+		src="#{request.contextPath}/Resources/js/main.js"></script>
 	<script type="text/javascript"
-		src="/ConsolaWebDocumentos/Resources/js/ConsolaWeb.js"></script>
+		src="#{request.contextPath}/Resources/js/ConsolaWeb.js"></script>
 </h:head>
 
 <body>
@@ -34,8 +34,15 @@
 	</div>
 	<div class="banner" style="padding: 5px">
 		<div class="banner-content">
-			<h:outputText value="Bienvenido(a) #{user}" style="color:red"></h:outputText>
+			<h:outputText value="Bienvenido(a) #{p:userPrincipal()}" style="color:red"></h:outputText>
+			
+			
 			<h:button value="Cerrar Sesion" style="float:right"></h:button>
+			
+			
+			
+			
+			
 			<br />
 			<h:outputText
 				value="Fecha y hora de ingreso: #{documentosBean.fechaHoraActual}"
@@ -44,8 +51,8 @@
 	</div>
 	<div class="contenedor-menu">
 		<div class="vertical-menu">
-			<a href="/ConsolaWebDocumentos/menu.xhtml" class="active">Consulta
-				Documentos</a> <a href="/ConsolaWebDocumentos/menu2.xhtml">Consulta
+			<a href="#{request.contextPath}/menu.xhtml" class="active">Consulta
+				Documentos</a> <a href="#{request.contextPath}/menu2.xhtml">Consulta
 				Errores</a>
 		</div>
 	</div>
@@ -76,6 +83,12 @@
 				<h:form id="formConsultaDocumentos"
 					rendered="#{documentosBean.mostrarFiltros}">
 					<p:growl id="growl" showDetail="true" />
+					
+					
+					
+					
+					
+					
 					<div class="row">
 						<div class="col-20">
 							<label for="fecha">* Fecha</label>
@@ -464,6 +477,13 @@
 								disabled="#{documentosBean.reintentoCorreo}">
 								<f:param name="key" value="#{datos.idProceso}"></f:param>
 							</h:commandButton>
+							
+							
+							<p:commandButton id="cerrarSessionButtonId" styleClass="ui-buttom" 
+								actionListener="#{documentosBean.cerrarSesion}"
+								value="Cerrar sesion 2" style="margin-left: 45%; margin-top:5px" action="/index?faces-redirect=true"   />
+							
+							
 						</div>
 						<div class="col-5" align="right">
 							<h:commandLink disabled="#{documentosBean.result eq null}">
