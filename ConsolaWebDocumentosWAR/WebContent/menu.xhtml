@@ -15,15 +15,15 @@
 	<h:outputScript id="jsf" library="javax.faces" name="jsf.js" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" type="text/css"
-		href="/ConsolaWebDocumentos/Resources/css/style-desktop.css"></link>
+		href="#{request.contextPath}/Resources/css/style-desktop.css"></link>
 	<link rel="stylesheet" type="text/css"
-		href="/ConsolaWebDocumentos/Resources/css/style-mobile.css"></link>
+		href="#{request.contextPath}/Resources/css/style-mobile.css"></link>
 	<link rel="stylesheet" type="text/css"
-		href="/ConsolaWebDocumentos/Resources/css/theme.css"></link>
+		href="#{request.contextPath}/Resources/css/theme.css"></link>
 	<script type="text/javascript"
-		src="/ConsolaWebDocumentos/Resources/js/main.js"></script>
+		src="#{request.contextPath}/Resources/js/main.js"></script>
 	<script type="text/javascript"
-		src="/ConsolaWebDocumentos/Resources/js/ConsolaWeb.js"></script>
+		src="#{request.contextPath}/Resources/js/ConsolaWeb.js"></script>
 </h:head>
 
 <body>
@@ -44,8 +44,8 @@
 	</div>
 	<div class="contenedor-menu">
 		<div class="vertical-menu">
-			<a href="/ConsolaWebDocumentos/menu.xhtml" class="active">Consulta
-				Documentos</a> <a href="/ConsolaWebDocumentos/menu2.xhtml">Consulta
+			<a href="#{request.contextPath}/menu.xhtml" class="active">Consulta
+				Documentos</a> <a href="#{request.contextPath}/menu2.xhtml">Consulta
 				Errores</a>
 		</div>
 	</div>

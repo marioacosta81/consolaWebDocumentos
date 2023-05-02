@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -32,7 +33,7 @@ import com.ibm.exceptions.core.IBMException;
 import co.com.ibm.components.pager.interfaces.IPageData;
 import co.com.ibm.components.pager.util.PageDataFactory;
 
-@ViewScoped
+@SessionScoped
 @ManagedBean(value = "erroresBean")
 public class ErroresBean implements Serializable {
 
