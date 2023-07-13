@@ -36,7 +36,7 @@ import com.ibm.exceptions.core.IBMException;
 import co.com.ibm.components.pager.interfaces.IPageData;
 import co.com.ibm.components.pager.util.PageDataFactory;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean(value = "documentosBean")
 public class DocumentosBean extends HttpServlet implements Serializable {
 

@@ -60,6 +60,9 @@ public class MenuFilter implements Filter {
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
 		httpResponse.addHeader("X-Content-Type-Options", "nosniff");
+		httpResponse.addHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+		httpResponse.addHeader("Pragma", "no-cache"); // HTTP 1.0.
+		//httpResponse.addHeader("Expires", 0); // Proxies.
 
 		
         chain.doFilter(httpRequest,httpResponse);

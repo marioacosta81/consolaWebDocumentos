@@ -31,8 +31,8 @@
 	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/logback-classic-1.1.2.jar"/>
 	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/logback-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/primefaces-10.0.0-sources.jar"/>
 	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/primefaces-10.0.0.jar"/>
-	<classpathentry kind="lib" path="/ConsolaWebDocumentos/EarContent/Librerias/slf4j-api-1.7.7.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

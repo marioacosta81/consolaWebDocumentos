@@ -33,7 +33,7 @@ import com.ibm.exceptions.core.IBMException;
 import co.com.ibm.components.pager.interfaces.IPageData;
 import co.com.ibm.components.pager.util.PageDataFactory;
 
-@SessionScoped
+@ViewScoped
 @ManagedBean(value = "erroresBean")
 public class ErroresBean implements Serializable {
 
